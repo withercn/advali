@@ -1,0 +1,10 @@
+D:\VS2008\AdvAli\AdvAli.Data\bin\Release\AdvAli.Data.dll
+D:\VS2008\AdvAli\AdvAli.Data\bin\Release\AdvAli.Data.pdb
+D:\VS2008\AdvAli\AdvAli.Data\obj\Release\ResolveAssemblyReference.cache
+D:\VS2008\AdvAli\AdvAli.Data\obj\Release\AdvAli.Data.dll
+D:\VS2008\AdvAli\AdvAli.Data\obj\Release\AdvAli.Data.pdb
+M:\AdvAli\AdvAli.Data\bin\Release\AdvAli.Data.dll
+M:\AdvAli\AdvAli.Data\bin\Release\AdvAli.Data.pdb
+M:\AdvAli\AdvAli.Data\obj\Release\ResolveAssemblyReference.cache
+M:\AdvAli\AdvAli.Data\obj\Release\AdvAli.Data.dll
+M:\AdvAli\AdvAli.Data\obj\Release\AdvAli.Data.pdb

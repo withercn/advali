@@ -1,0 +1,14 @@
+D:\VS2008\AdvAli\AdvAli.Data.Interface\bin\Release\AdvAli.Data.Interface.dll
+D:\VS2008\AdvAli\AdvAli.Data.Interface\bin\Release\AdvAli.Data.Interface.pdb
+D:\VS2008\AdvAli\AdvAli.Data.Interface\bin\Release\AdvAli.Entity.dll
+D:\VS2008\AdvAli\AdvAli.Data.Interface\bin\Release\AdvAli.Entity.pdb
+D:\VS2008\AdvAli\AdvAli.Data.Interface\obj\Release\ResolveAssemblyReference.cache
+D:\VS2008\AdvAli\AdvAli.Data.Interface\obj\Release\AdvAli.Data.Interface.dll
+D:\VS2008\AdvAli\AdvAli.Data.Interface\obj\Release\AdvAli.Data.Interface.pdb
+M:\AdvAli\AdvAli.Data.Interface\bin\Release\AdvAli.Data.Interface.dll
+M:\AdvAli\AdvAli.Data.Interface\bin\Release\AdvAli.Data.Interface.pdb
+M:\AdvAli\AdvAli.Data.Interface\bin\Release\AdvAli.Entity.dll
+M:\AdvAli\AdvAli.Data.Interface\bin\Release\AdvAli.Entity.pdb
+M:\AdvAli\AdvAli.Data.Interface\obj\Release\ResolveAssemblyReference.cache
+M:\AdvAli\AdvAli.Data.Interface\obj\Release\AdvAli.Data.Interface.dll
+M:\AdvAli\AdvAli.Data.Interface\obj\Release\AdvAli.Data.Interface.pdb

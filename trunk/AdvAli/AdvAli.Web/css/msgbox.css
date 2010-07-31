@@ -1,0 +1,15 @@
+﻿#msgbox div {border:0px;margin:0;padding:0;background:transparent;}
+#msgbox {width:369px;position:absolute;font-family:宋体;z-index:2;}
+#msgbox #title {width:369px;height:23px;background:url(../images/msgbox/msgbox_title-trans.gif) no-repeat;}
+#msgbox #title img {cursor:pointer;width:47px;height:22px;border:0px;float:right;margin:1px 15px 0 0;}
+#msgbox #title div {padding:7px 0 0 15px;font-size:14px;font-family:黑体;}
+#msgbox .content {width:369px;height:auto;margin:0 auto;background:url(../images/msgbox/msgbox_line-trans.gif);}
+#msgbox .content .content1 {clear:both;width:349px;margin:4px auto;border:1px #718C91 solid;}
+#msgbox .content .content1 #bodyer {border:1px white solid;background-color:#F0F0F0;padding:5px;font-size:12px;line-height:20px;}
+#msgbox .content .content1 #bodyer a {text-decoration:none;color:Black;height:25px;}
+#msgbox .content .content1 #bodyer a:hover {text-decoration:underline;}
+#msgbox .content .content1 #bodyer ul {list-style:none;margin:0 10px 0 10px;padding:0;line-height:25px;}
+#msgbox .content .content1 .btns {height:20px;text-align:center;}
+#msgbox .content .content1 .btns input {cursor:pointer;border:0px;margin:0px;padding:0px;width:70px;height:20px;background:url(../images/msgbox/btn_up-trans.gif) no-repeat;}
+#msgbox .content .clear {height:0px;line-height:0px;clear:both;}
+#msgbox .bottom {width:369px;height:14px;background:url(../images/msgbox/msgbox_bottom-trans.gif) no-repeat;}

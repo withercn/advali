@@ -1,0 +1,10 @@
+D:\Vs2008\AdvAli\AdvAli.Entity\bin\Debug\AdvAli.Entity.dll
+D:\Vs2008\AdvAli\AdvAli.Entity\bin\Debug\AdvAli.Entity.pdb
+D:\Vs2008\AdvAli\AdvAli.Entity\obj\Debug\ResolveAssemblyReference.cache
+D:\Vs2008\AdvAli\AdvAli.Entity\obj\Debug\AdvAli.Entity.dll
+D:\Vs2008\AdvAli\AdvAli.Entity\obj\Debug\AdvAli.Entity.pdb
+M:\AdvAli\AdvAli.Entity\bin\Debug\AdvAli.Entity.dll
+M:\AdvAli\AdvAli.Entity\bin\Debug\AdvAli.Entity.pdb
+M:\AdvAli\AdvAli.Entity\obj\Debug\ResolveAssemblyReference.cache
+M:\AdvAli\AdvAli.Entity\obj\Debug\AdvAli.Entity.dll
+M:\AdvAli\AdvAli.Entity\obj\Debug\AdvAli.Entity.pdb
