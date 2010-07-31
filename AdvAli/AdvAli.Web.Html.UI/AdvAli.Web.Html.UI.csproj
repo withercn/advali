@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6408EFEA-FB8C-45DB-B93F-7E306BF0D4DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdvAli.Web.Html.UI</RootNamespace>
+    <AssemblyName>AdvAli.Web.Html.UI</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdvAli.Common\AdvAli.Common.csproj">
+      <Project>{73CDF5F3-073B-4369-93F6-F827AE3FB570}</Project>
+      <Name>AdvAli.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvAli.Config\AdvAli.Config.csproj">
+      <Project>{F63CB022-30AC-43F4-BF31-5359B0D537F2}</Project>
+      <Name>AdvAli.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvAli.Entity\AdvAli.Entity.csproj">
+      <Project>{566B8462-A476-4A35-91ED-B6F83EB766AC}</Project>
+      <Name>AdvAli.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvAli.Logic\AdvAli.Logic.csproj">
+      <Project>{0C9DD1EB-6A29-4DB7-A62A-C6DCACAAC530}</Project>
+      <Name>AdvAli.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvAli.Web.Html\AdvAli.Web.Html.csproj">
+      <Project>{218A2CEB-122F-43A6-832C-D84374FF00A0}</Project>
+      <Name>AdvAli.Web.Html</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

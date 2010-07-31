@@ -1,0 +1,5 @@
+D:\VS2008\AdvAli\AdvAli.Log\obj\Release\ResolveAssemblyReference.cache
+D:\VS2008\AdvAli\AdvAli.Log\bin\Release\AdvAli.Log.dll
+D:\VS2008\AdvAli\AdvAli.Log\bin\Release\AdvAli.Log.pdb
+D:\VS2008\AdvAli\AdvAli.Log\obj\Release\AdvAli.Log.dll
+D:\VS2008\AdvAli\AdvAli.Log\obj\Release\AdvAli.Log.pdb

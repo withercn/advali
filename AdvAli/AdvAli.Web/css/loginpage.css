@@ -1,0 +1,25 @@
+﻿body {background:url(../images/background.jpg) no-repeat;margin:0 auto;padding:0 auto;width:1002px;font-family:Arial,宋体;}
+	.main {background:url(../images/login_background-trans.gif) no-repeat;width:708px;height:497px;margin:0 auto;margin-top:50px;}
+	.main .pic {background:url(../images/img_background-trans.gif) no-repeat;width:378px;height:250px;margin:130px 0 0 10px;padding:2px 0 0 4px;float:left;}
+	.main .pic div {background-color:white;padding:1px;width:374px;height:246px;margin:0;}
+    .loginInput {width:163px;height:19px;border:0px;padding:5px 5px 0 5px;margin-left:5px;background:transparent;}
+    .registerInput {width:188px;height:19px;border:0px;padding:5px 5px 0 5px;background:transparent;clear:left;margin-left:0px;}
+    .registerContent {overflow:hidden;width:188px;height:58px;border:0px;padding:5px 5px 0 5px;background:transparent;clear:left;margin-left:0px;}
+    ul {list-style:none;color:#6F6F6F;font-size:12px;font-family:宋体;line-height:28px;}
+    .logins {background-image:url(../images/board_background-trans.gif);width:233px;height:245px;float:left;margin:130px 0 0 20px;padding-left:19px;padding-top:11px; }
+    .registerContentLi {width:323px;height:93px;background:url(../images/content_1-trans.gif) no-repeat;}
+    .registerContentLi:hover {background:url(../images/content_2-trans.gif) no-repeat;}
+    .inputs {width:203px;height:24px;background:url(../images/input1-trans.gif) no-repeat;}
+    .inputs:hover {background:url(../images/input2-trans.gif) no-repeat;}
+    .inputs img {margin:5px 0 0 10px;float:left;}
+    .inputs input {float:left;}
+    .logins li {clear:both;}
+    .logins li input.smallInput {background:url(../images/code_input-trans.gif) no-repeat;width:82px;height:19px;border:0px;padding:5px 0 0 5px;float:right;margin-right:30px;}
+    .logins li input.smallInput:hover {background:url(../images/code_input_hover-trans.gif) no-repeat;}
+    .logbtn {background:none;border:0px;float:left;background:url(../images/login_btn1-trans.gif) no-repeat;width:97px;height:29px;}
+    .logbtn:hover {background-image:url(../images/login_btn2-trans.gif);}
+    .regbtn {background:none;border:0px;float:right;margin-right:25px;background:url(../images/register_btn1-trans.gif) no-repeat;width:97px;height:29px;}
+    .regbtn:hover {background:url(../images/register_btn2-trans.gif) no-repeat;}
+    .forgetbtn {background:none;border:0px;background:url(../images/forget_btn1-trans.gif) no-repeat;width:211px;height:29px;}
+    .forgetbtn:hover {background:url(../images/forget_btn2-trans.gif) no-repeat;}
+    .h30 {height:30px;}

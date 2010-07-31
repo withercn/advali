@@ -1,0 +1,5 @@
+D:\VS2008\AdvAli\FCKEditor.Net.2.6.3\bin\Debug\2.0\FredCK.FCKeditorV2.dll
+D:\VS2008\AdvAli\FCKEditor.Net.2.6.3\bin\Debug\2.0\FredCK.FCKeditorV2.pdb
+D:\VS2008\AdvAli\FCKEditor.Net.2.6.3\obj\Debug\ResolveAssemblyReference.cache
+D:\VS2008\AdvAli\FCKEditor.Net.2.6.3\obj\Debug\FredCK.FCKeditorV2.dll
+D:\VS2008\AdvAli\FCKEditor.Net.2.6.3\obj\Debug\FredCK.FCKeditorV2.pdb
