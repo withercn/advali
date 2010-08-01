@@ -555,3 +555,30 @@ function selectAd(values) {
     else
         $("showpic").style.display = "none";
 }
+function reviewSwt() {
+    var template = parseInt(location.href.substring(location.href.length - 1));
+    $("msgbox_titles").innerHTML = $("title").value;
+    $("actions").href = $("link").value;
+    $("msgbox_text").innerHTML = $("context").value;
+    if (template == 1) {
+        $("msgbox_prompt").innerHTML = $("prompt").value;
+    }
+    else {
+        $("msgbox_tel1").innerHTML = $("tel1").value;
+        $("msgbox_tel2").innerHTML = $("tel2").value;
+    }
+    if ($("adText1").value.length > 0)
+        $("msgbox_hot").innerHTML = "<li>·<a href=\"" + $("adLink1").value + "\" target=\"_blank\">" + $("adText1").value + "</a></li>";
+    else
+        $("msgbox_hot").innerHTML = "<li>&nbsp;</li>";
+    if ($("adText2").value.length > 0)
+        $("msgbox_hot").innerHTML += "<li>·<a href=\"" + $("adLink2").value + "\" target=\"_blank\">" + $("adText2").value + "</a></li>";
+    else
+        $("msgbox_hot").innerHTML += "<li>&nbsp;</li>";
+}
+function setAdShow(value) {
+    $("ad1").style.display = value;
+    $("ad2").style.display = value;
+    $("ad3").style.display = value;
+    $("ad4").style.display = value;
+}

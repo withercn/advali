@@ -542,6 +542,9 @@ namespace AdvAli.Web.Html
             string adtext2 = Common.Util.GetPageParams("adtext2");
             string adlink1 = Common.Util.GetPageParams("adlink1");
             string adlink2 = Common.Util.GetPageParams("adlink2");
+            string prompt = Common.Util.GetPageParams("prompt");
+            string tel1 = Common.Util.GetPageParams("tel1");
+            string tel2 = Common.Util.GetPageParams("tel2");
             Guidec guidec;
             if (site.AdId > 0)
                 guidec = Logic.Consult.GetGuidec(site.AdId);
@@ -555,6 +558,9 @@ namespace AdvAli.Web.Html
             guidec.AdLink1 = adlink1;
             guidec.AdText2 = adtext2;
             guidec.AdLink2 = adlink2;
+            guidec.Prompt = prompt;
+            guidec.Tel1 = tel1;
+            guidec.Tel2 = tel2;
             int results = Logic.Consult.SaveStep41(siteid, site, guidec);
             if (results > 0)
                 MsgBox.Alert("Alert", "<p>网站加盟成功!</p>", "../website/GetScript.aspx?siteid=" + siteid.ToString());
