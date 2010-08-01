@@ -990,7 +990,7 @@ namespace AdvAli.Data
             if (site.AdId > 0)
             {
                 this.builder = new StringBuilder();
-                this.builder.Append("update adv_guidec set title=@title,link=@link,context=@context,wordlnk=@wordlnk,adtext1=@adtext1,adlink1=@adlink1,adtext2=@adtext2,adlink2=@adlink2 where id=@id");
+                this.builder.Append("update adv_guidec set title=@title,link=@link,context=@context,wordlnk=@wordlnk,adtext1=@adtext1,adlink1=@adlink1,adtext2=@adtext2,adlink2=@adlink2,prompt=@prompt,tel1=@tel1,tel2=@tel2 where id=@id");
                 SqlParameter[] sParams = new SqlParameter[]
                 {
                     SqlHelper.MakeInParam("@title", SqlDbType.VarChar, 200, guidec.Title),
@@ -1001,6 +1001,9 @@ namespace AdvAli.Data
                     SqlHelper.MakeInParam("@adlink1", SqlDbType.VarChar, 200, guidec.AdLink1),
                     SqlHelper.MakeInParam("@adtext2", SqlDbType.VarChar, 200, guidec.AdText2),
                     SqlHelper.MakeInParam("@adlink2", SqlDbType.VarChar, 200, guidec.AdLink2),
+                    SqlHelper.MakeInParam("@prompt", SqlDbType.VarChar, 200, guidec.Prompt),
+                    SqlHelper.MakeInParam("@tel1", SqlDbType.VarChar, 200, guidec.Tel1),
+                    SqlHelper.MakeInParam("@tel2", SqlDbType.VarChar, 200, guidec.Tel2),
                     SqlHelper.MakeInParam("@id", SqlDbType.Int, 4, guidec.Id)
                 };
                 SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), sParams);
@@ -1009,7 +1012,7 @@ namespace AdvAli.Data
             else
             {
                 this.builder = new StringBuilder();
-                this.builder.Append("insert adv_guidec (title,link,context,wordlnk,adtext1,adlink1,adtext2,adlink2) values (@title,@link,@context,@wordlnk,@adtext1,@adlink1,@adtext2,@adlink2)");
+                this.builder.Append("insert adv_guidec (title,link,context,wordlnk,adtext1,adlink1,adtext2,adlink2,prompt,tel1,tel2) values (@title,@link,@context,@wordlnk,@adtext1,@adlink1,@adtext2,@adlink2,@prompt,@tel1,@tel2)");
                 SqlParameter[] sParams = new SqlParameter[]
                 {
                     SqlHelper.MakeInParam("@title", SqlDbType.VarChar, 200, guidec.Title),
@@ -1019,7 +1022,10 @@ namespace AdvAli.Data
                     SqlHelper.MakeInParam("adtext1", SqlDbType.VarChar, 200, guidec.AdText1),
                     SqlHelper.MakeInParam("@adlink1", SqlDbType.VarChar, 200, guidec.AdLink1),
                     SqlHelper.MakeInParam("@adtext2", SqlDbType.VarChar, 200, guidec.AdText2),
-                    SqlHelper.MakeInParam("@adlink2", SqlDbType.VarChar, 200, guidec.AdLink2)
+                    SqlHelper.MakeInParam("@adlink2", SqlDbType.VarChar, 200, guidec.AdLink2),
+                    SqlHelper.MakeInParam("@prompt", SqlDbType.VarChar, 200, guidec.Prompt),
+                    SqlHelper.MakeInParam("@tel1", SqlDbType.VarChar, 200, guidec.Tel1),
+                    SqlHelper.MakeInParam("@tel2", SqlDbType.VarChar, 200, guidec.Tel2)
                 };
                 SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), sParams);
                 this.builder = new StringBuilder();

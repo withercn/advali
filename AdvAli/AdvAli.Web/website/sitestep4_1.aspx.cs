@@ -35,15 +35,37 @@ namespace AdvAli.Web.website
             Guidec guidec = Logic.Consult.GetGuidec(site.AdId);
             title.Value = guidec.Title;
             link.Value = guidec.Link;
-            contenxt.Value = guidec.Context;
+            context.Value = guidec.Context;
             if (guidec.WordLnk == 1)
+            {
                 wordLnk1.Checked = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "ScriptBlock", "setAdShow('block');", true);
+            }
             else
+            {
                 wordLnk2.Checked = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "ScriptBlock", "setAdShow('none');", true);
+            }
             adText1.Value = guidec.AdText1;
             adLink1.Value = guidec.AdLink2;
             adText2.Value = guidec.AdText2;
             adLink2.Value = guidec.AdLink2;
+            ClientScript.RegisterStartupScript(this.GetType(), "StartScript", "reviewSwt();", true);
+            int template = Common.Util.GetPageParamsAndToInt("t");
+            if (template == 1)
+            {
+                tel1li.Visible = false;
+                tel2li.Visible = false;
+                swtf.Visible = false;
+                prompt.Value = guidec.Prompt;
+            }
+            if (template == 2)
+            {
+                promptli.Visible = false;
+                swtm.Visible = false;
+                tel1.Value = guidec.Tel1;
+                tel2.Value = guidec.Tel2;
+            }
         }
 
         protected void Step2_Click(object sender, EventArgs e)

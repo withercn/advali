@@ -19,6 +19,10 @@ namespace AdvAli.Entity
         private string _adlink1 = "";
         private string _adtext2 = "";
         private string _adlink2 = "";
+        private string _adText3 = "";
+        private string _prompt = "";
+        private string _tel1 = "";
+        private string _tel2 = "";
         #endregion
 
         #region public
@@ -58,6 +62,18 @@ namespace AdvAli.Entity
         /// 广告链接二
         /// </summary>
         public string AdLink2 { set { this._adlink2 = value; } get { return this._adlink2; } }
+        /// <summary>
+        /// 温馨提示
+        /// </summary>
+        public string Prompt { set { this._prompt = value; } get { return this._prompt; } }
+        /// <summary>
+        /// 网络咨询热线
+        /// </summary>
+        public string Tel1 { set { this._tel1 = value; } get { return this._tel1; } }
+        /// <summary>
+        /// 24小时热线
+        /// </summary>
+        public string Tel2 { set { this._tel2 = value; } get { return this._tel2; } }
         #endregion
     }
 }

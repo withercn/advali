@@ -374,6 +374,9 @@ namespace AdvAli.Logic
                     guidec.AdLink1 = reader["adlink1"].ToString();
                     guidec.AdText2 = reader["adtext2"].ToString();
                     guidec.AdLink2 = reader["adlink2"].ToString();
+                    guidec.Prompt = reader["prompt"].ToString();
+                    guidec.Tel1 = reader["tel1"].ToString();
+                    guidec.Tel2 = reader["tel2"].ToString();
                 }
             }
             return guidec;
