@@ -373,6 +373,7 @@
     <Content Include="user\password.aspx" />
     <Content Include="webinfo.aspx" />
     <Content Include="website\activity.aspx" />
+    <Content Include="website\GetGuidec.aspx" />
     <Content Include="website\GetScript.aspx" />
     <Content Include="website\previewGuidec.aspx" />
     <Content Include="user\rights.aspx" />
@@ -603,6 +604,13 @@
     </Compile>
     <Compile Include="website\activity.aspx.designer.cs">
       <DependentUpon>activity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="website\GetGuidec.aspx.cs">
+      <DependentUpon>GetGuidec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="website\GetGuidec.aspx.designer.cs">
+      <DependentUpon>GetGuidec.aspx</DependentUpon>
     </Compile>
     <Compile Include="website\GetScript.aspx.cs">
       <DependentUpon>GetScript.aspx</DependentUpon>

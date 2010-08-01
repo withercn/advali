@@ -115,7 +115,7 @@ function Count()
     var scripts = document.createElement("script");
     scripts.type="text/javascript";
     var pageurl = escape(location.href);var pagetitle = escape(document.title);var referrer = escape(document.referrer);
-    scripts.src="<%=AdvAli.Config.Global.config.WebSiteUrl%>/script/count.aspx?siteid=<%=siteId%>&getsiteid=<%=getSiteId%>&pageurl="+pageurl+"&pagetitle="+pagetitle+"&referrer="+referrer;
+    scripts.src="<%=WebSiteUrl%>/script/count.aspx?siteid=<%=siteId%>&getsiteid=<%=getSiteId%>&pageurl="+pageurl+"&pagetitle="+pagetitle+"&referrer="+referrer;
     document.body.insertBefore(scripts, document.body.childNodes[0]);
     <%}%>
 }

@@ -11,6 +11,6 @@
 namespace AdvAli.Web.website {
     
     
-    public partial class previewGuidec {
+    public partial class GetGuidec {
     }
 }
