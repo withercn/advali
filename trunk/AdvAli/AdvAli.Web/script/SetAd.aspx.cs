@@ -161,11 +161,12 @@ namespace AdvAli.Web.script
                 return;
             if (adType == 1)
             {
-                Guidec g = (Guidec)HtmlWebSite.GetAdvert(adType, adId);
+                /*Guidec g = (Guidec)HtmlWebSite.GetAdvert(adType, adId);
                 string baseUrl = Config.Global.__WebSiteUrl + "website/previewGuidec.aspx?";
                 urls += "guidechead=" + GlobalObject.escape(g.Title);
                 urls += "&guideclink=" + GlobalObject.escape(g.Link);
-                urls = baseUrl + urls;
+                urls = baseUrl + urls;*/
+                urls = Config.Global.__WebSiteUrl + "website/getguidec.aspx?1=1";
             }
             if (adType == 2 || adType == 3)
             {

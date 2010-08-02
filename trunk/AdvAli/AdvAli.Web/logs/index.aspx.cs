@@ -25,8 +25,8 @@ namespace AdvAli.Web.logs
                 date1.Value = DateTime.Now.ToString("yyyy-MM-dd");
                 date2.Value = DateTime.Now.ToString("yyyy-MM-dd");
             }
-            base.FieldName = "编号,时间,地址,受访页,关键字及来源,提供网站";
-            base.FieldWidth = "50,120,100,150,150,150";
+            base.FieldName = "编号,时间,地址,受访页,关键字及来源,网站,提供网站";
+            base.FieldWidth = "50,80,80,150,150,100,100";
             base.isNeedCheckRights = true;
             base.BrowserRightsIntValue = 13;
             Common.Util.BindCtrlHTMLDDL(Logic.Consult.GetSite(base.GetLoggedMemberId(), base.GetLoggedUserGroupId()), "sitename", "id", siteid);
