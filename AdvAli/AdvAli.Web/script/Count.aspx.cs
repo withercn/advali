@@ -20,8 +20,9 @@ namespace AdvAli.Web.script
         {
             int siteid = Common.Util.GetPageParamsAndToInt("siteid");
             HtmlCount.AnalysisAdd();
-            Response.Clear();
-            Response.End();
+            Entity.Site site = Logic.Consult.GetWebSite(siteid);
+            Guidec guidec = Logic.Consult.GetGuidec(site.AdId);
+            Response.Redirect(guidec.Link, true);
         }
     }
 }

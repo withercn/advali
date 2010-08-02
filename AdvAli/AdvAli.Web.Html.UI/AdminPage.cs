@@ -595,7 +595,7 @@ namespace AdvAli.Web.Html.UI
                         tr.Cells.Add(htc);
                         htc = new HtmlTableCell();
                         DateTime logdate = Common.Util.ConvertToDateTime(reader["logdate"].ToString());
-                        htc.InnerHtml = logdate.ToString("yyyy年MM月dd日hh点");
+                        htc.InnerHtml = logdate.ToString("MM月dd日hh点");
                         tr.Cells.Add(htc);
                         htc = new HtmlTableCell();
                         htc.InnerHtml = reader["country"].ToString();
@@ -616,6 +616,11 @@ namespace AdvAli.Web.Html.UI
                             htc.InnerHtml = string.Format("<a href=\"{0}\" target=\"_blank\">{1}</a>", reader["referrer"].ToString(), keywords);
                         else
                             htc.InnerHtml = string.Format("<a href=\"{0}\" target=\"_blank\">{0}</a>", reader["referrer"].ToString());
+                        tr.Cells.Add(htc);
+                        htc = new HtmlTableCell();
+                        AdvAli.Entity.Site sites = Logic.Consult.GetWebSite(Common.Util.ChangeStrToInt(reader["getsiteid"].ToString()));
+                        htc.InnerHtml = string.Format("<a href=\"http://{0}\" target=\"_blank\">{1}</a>", sites.SiteUrl, sites.SiteName);
+                        tr.Cells.Add(htc);
                         tr.Cells.Add(htc);
                         htc = new HtmlTableCell();
                         AdvAli.Entity.Site site = Logic.Consult.GetWebSite(Common.Util.ChangeStrToInt(reader["siteid"].ToString()));
