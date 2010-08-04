@@ -660,15 +660,20 @@ namespace AdvAli.Data
         public string GetAdRang(string ranglist)
         {
             this.builder = new StringBuilder();
-            this.builder.Append(string.Format("select cityname from adv_city where cityid in ({0})", ranglist));
+            this.builder.Append(string.Format("select cityid,cityname from adv_city where cityid in ({0})", ranglist));
+            string[] list = ranglist.Split(new char[] { ',' });
             string rangelist = "";
             using (DataSet ds = SqlHelper.RunSqlGetDataSet(this.builder.ToString()))
             {
                 if (Common.Util.CheckDataSet(ds))
                 {
-                    foreach (DataRow reader in ds.Tables[0].Rows)
+                    for (int i = 0; i < list.Length; i++)
                     {
-                        rangelist += reader["cityname"].ToString() + ",";
+                        foreach (DataRow reader in ds.Tables[0].Rows)
+                        {
+                            if (list[i] == reader["cityid"].ToString())
+                                rangelist += reader["cityname"].ToString() + ",";
+                        }
                     }
                 }
             }
@@ -1379,7 +1384,6 @@ namespace AdvAli.Data
             this.builder.Append(" order by id desc) and a.siteid=c.id and a.groupid=b.id order by a.id desc");
             return SqlHelper.RunParamedSqlGetDataSet(this.builder.ToString(), sParams);
         }
-
         public bool KeyAdd(Key k)
         {
             this.builder = new StringBuilder();
@@ -1423,7 +1427,6 @@ namespace AdvAli.Data
             };
             SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), sParams);
         }
-
         public DataSet GetKeysGroup(int userid, int siteid, int page, int pagesize, out int recordcount)
         {
             this.builder = new StringBuilder();
@@ -1504,6 +1507,99 @@ namespace AdvAli.Data
                 return true;
             else
                 return false;
+        }
+        #endregion
+        #region 比例分配
+        public int GetAllProportion(string siteid)
+        {
+            this.builder = new StringBuilder();
+            this.builder.Append(string.Format("select count(*) from adv_analysis where datediff(dd,logdate,getdate())=1 and siteid in ({0})", siteid));
+            object obj = SqlHelper.RunSqlGetFirstCellValue(this.builder.ToString());
+            if (object.Equals(obj, null) || object.Equals(obj, System.DBNull.Value))
+                return 0;
+            else
+                return int.Parse(obj.ToString());
+        }
+        public int GetAllTodayCount(string siteid)
+        {
+            this.builder = new StringBuilder();
+            this.builder.Append(string.Format("select count(*) from adv_analysis where datediff(dd,logdate,getdate())=0 and getsiteid in ({0})", siteid));
+            object obj = SqlHelper.RunSqlGetFirstCellValue(this.builder.ToString());
+            if (object.Equals(obj, null) || object.Equals(obj, System.DBNull.Value))
+                return 0;
+            else
+                return int.Parse(obj.ToString());
+        }
+        public DataSet GetProportion(string siteid)
+        {
+            this.builder = new StringBuilder();
+            this.builder.Append(string.Format("select siteid,count(id) as results from adv_analysis where datediff(dd,logdate,getdate())=1 and siteid in ({0}) group by siteid", siteid));
+            return SqlHelper.RunSqlGetDataSet(this.builder.ToString());
+        }
+        public DataSet GetTodayProportion(string siteid)
+        {
+            this.builder = new StringBuilder();
+            this.builder.Append(string.Format("select siteid,count(id) as results from adv_analysis where datediff(dd,logdate,getdate())=0 and getsiteid in ({0}) group by siteid", siteid));
+            return SqlHelper.RunSqlGetDataSet(this.builder.ToString());
+        }
+        public DataSet GetKeyProportion(string keywords, string cityid)
+        {
+            this.builder = new StringBuilder();
+            this.builder.Append(string.Format("select id from adv_site where ranglist like '%${0}$%' and stats=1", cityid));
+            using (DataSet ds = SqlHelper.RunSqlGetDataSet(this.builder.ToString()))
+            {
+                if (Util.CheckDataSet(ds))
+                {
+                    string siteid = "";
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        if (i < ds.Tables[0].Rows.Count - 1)
+                            siteid += ds.Tables[0].Rows[i]["id"].ToString() + ",";
+                        else
+                            siteid += ds.Tables[0].Rows[i]["id"].ToString();
+                    }
+                    this.builder = new StringBuilder();
+                    this.builder.Append(string.Format("select siteid from adv_keys where siteid in ({0}) and keywords=@keywords", siteid));
+                    SqlParameter[] sParams = new SqlParameter[] { SqlHelper.MakeInParam("@keywords", SqlDbType.VarChar, 200, keywords) };
+                    using (DataSet set = SqlHelper.RunParamedSqlGetDataSet(this.builder.ToString(), sParams))
+                    {
+                        if (Util.CheckDataSet(set))
+                            return set;
+                        else
+                            return ds;
+                    }
+                }
+                return null;
+            }
+        }
+        public string GetKeyProportions(string keywords, string cityid)
+        {
+            using (DataSet ds = GetKeyProportion(keywords, cityid))
+            {
+                string siteid = string.Empty;
+                if (Util.CheckDataSet(ds))
+                {
+                    foreach (DataRow reader in ds.Tables[0].Rows)
+                    {
+                        siteid += reader[0].ToString() + ",";
+                    }
+                    if (siteid.Length > 0) siteid = siteid.Substring(0, siteid.Length - 1);
+                }
+                return siteid;
+            }
+        }
+        public string GetKeyProportions(DataSet ds)
+        {
+            string siteid = string.Empty;
+            if (Util.CheckDataSet(ds))
+            {
+                foreach (DataRow reader in ds.Tables[0].Rows)
+                {
+                    siteid += reader[0].ToString() + ",";
+                }
+                if (siteid.Length > 0) siteid = siteid.Substring(0, siteid.Length - 1);
+            }
+            return siteid;
         }
         #endregion
     }

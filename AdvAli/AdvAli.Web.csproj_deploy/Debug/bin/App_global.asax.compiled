@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="8" virtualPath="/AdvAli.Web.csproj/global.asax" hash="33c60594" filehash="ffffbc1fe9997f11" flags="150000" assembly="App_global.asax" type="ASP.global_asax">
-    <filedeps>
-        <filedep name="/AdvAli.Web.csproj/global.asax" />
-    </filedeps>
-</preserve>

@@ -485,41 +485,58 @@ namespace AdvAli.Logic
             provider.UpdateCitySiteId(cityId, siteId);
             return siteId;
         }
-        public static int GetAdKeyWebSiteId(string keyword, int cityId, out int adType, out int adId)
+        public static int GetAdKeyWebSiteId(string keyword, int cityId)
         {
-            int siteId = 0;
-            adType = 0;
-            adId = 0;
-            bool isFinded = false;
+            int selectId = 0;
             int lastSiteId = provider.GetKeyCitySiteId(cityId, keyword);
-            using (DataSet ds = provider.GetAllKeys(keyword, cityId.ToString()))
+            string siteids = provider.GetKeyProportions(keyword, cityId.ToString());
+            int totaltom = provider.GetAllProportion(siteids);
+            int totaltoday = provider.GetAllTodayCount(siteids);
+            using (DataSet ds = provider.GetProportion(siteids))
             {
                 if (Util.CheckDataSet(ds))
                 {
+                    DataColumn dc = new DataColumn("perc");
+                    ds.Tables[0].Columns.Add(dc);
+                    dc = new DataColumn("today");
+                    ds.Tables[0].Columns.Add(dc);
+                    dc = new DataColumn("todayperc");
+                    ds.Tables[0].Columns.Add(dc);
                     foreach (DataRow reader in ds.Tables[0].Rows)
                     {
-                        siteId = Util.ChangeStrToInt(ds.Tables[0].Rows[ds.Tables[0].Rows.Count - 1]["id"].ToString());
-                        if (lastSiteId == siteId)
+                        int count = Util.ChangeStrToInt(reader["results"].ToString());
+                        int perc = int.Parse(((count * 100) / totaltom).ToString());
+                        int websiteid = Util.ChangeStrToInt(reader["siteid"].ToString());
+                        reader["perc"] = perc;
+                        int today = 0;
+                        using (DataSet set = provider.GetProportion(siteids))
                         {
-                            siteId = Util.ConvertToInt(reader["siteid"].ToString());
-                            adType = Util.ConvertToInt(reader["addisplay"].ToString());
-                            adId = Util.ConvertToInt(reader["adid"].ToString());
+                            if (Util.CheckDataSet(set))
+                            {
+                                foreach (DataRow row in set.Tables[0].Rows)
+                                {
+                                    if (reader["siteid"].ToString() == row["siteid"].ToString())
+                                        today = Util.ChangeStrToInt(row["results"].ToString());
+                                }
+                            }
+                        }
+                        reader["today"] = today;
+                        int todayperc = int.Parse(((today * 100) / totaltoday).ToString());
+                        reader["todayperc"] = todayperc;
+                    }
+                    foreach (DataRow reader in ds.Tables[0].Rows)
+                    {
+                        int perc = Util.ChangeStrToInt(reader["perc"].ToString());
+                        int todayperc = Util.ChangeStrToInt(reader["todayperc"].ToString());
+                        if (perc > todayperc)
+                        {
+                            selectId = Util.ChangeStrToInt(reader["siteid"].ToString());
                             break;
                         }
-                        siteId = Util.ConvertToInt(reader["siteid"].ToString());
-                        if (lastSiteId == 0) isFinded = true;
-                        adType = Util.ConvertToInt(reader["addisplay"].ToString());
-                        adId = Util.ConvertToInt(reader["adid"].ToString());
-                        if (isFinded)
-                        {
-                            break;
-                        }
-                        if (siteId == lastSiteId) isFinded = true;
                     }
                 }
+                return selectId;
             }
-            provider.UpdateKeyCitySiteId(keyword, cityId, siteId);
-            return siteId;
         }
         public static int GetWebSiteId(string url)
         {

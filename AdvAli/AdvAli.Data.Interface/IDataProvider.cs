@@ -424,5 +424,33 @@ namespace AdvAli.Data
         /// 加盟网站调协第四步（文字商务通）
         /// </summary>
         int SaveStep41(int siteid, Site site, Guidec guidec);
+        /// <summary>
+        /// 多个网站昨天(所有提供)的访问量
+        /// </summary>
+        int GetAllProportion(string siteid);
+        /// <summary>
+        /// 多个网站昨天的访问量
+        /// </summary>
+        int GetAllTodayCount(string siteid);
+        /// <summary>
+        /// 多个网站昨天(提供的)访问量
+        /// </summary>
+        DataSet GetProportion(string siteid);
+        /// <summary>
+        /// 多个网站昨天访问量
+        /// </summary>
+        DataSet GetTodayProportion(string siteid);
+        /// <summary>
+        /// 获取符合"关键词"及"地域"的网站ID,优先同时有关键词和地域-->没有关键词,只有地域-->(无)
+        /// </summary>
+        DataSet GetKeyProportion(string keywords, string cityid);
+        /// <summary>
+        /// 获取符合"关键词"及"地域"的网站ID(字符串形式),优先同时有关键词和地域-->没有关键词,只有地域-->(无)
+        /// </summary>
+        string GetKeyProportions(string keywords, string cityid);
+        /// <summary>
+        /// 获取符合"关键词"及"地域"的网站ID(字符串形式),优先同时有关键词和地域-->没有关键词,只有地域-->(无)
+        /// </summary>
+        string GetKeyProportions(DataSet ds);
     }
 }

@@ -73,7 +73,7 @@ namespace AdvAli.Web.script
             int siteid = Common.Util.GetPageParamsAndToInt("siteid");//受访网站编号
             if (siteid == -100) return;
             AdvAli.Entity.City city = KeyManage.GetCityFormsSearchEngines(out hasSearch, out key);//获取搜索引擎来的地域名.
-            //AdvAli.Entity.City city = Logic.Consult.GetCityFormsSearchEngines(out hasSearch); //获取搜索引擎来的地域名.
+
             string ranglist = Logic.Consult.GetWebSiteCountryId(siteid);//受访网站的地域列表
             this.IpSearchLocal();//分析IP数据
             int cityId = Logic.Consult.GetCityId(ipCountry);//客户所在的地域编号
@@ -126,8 +126,10 @@ namespace AdvAli.Web.script
             }
             else if (citySelect == AdvAli.Logic.CitySelect.SearchEngineKeyword) //轮换显示搜索引擎关键词及地域所在网站的对话
             {
-                siteid = Logic.Consult.GetAdKeyWebSiteId(key, cityId, out adType, out adId);
+                siteid = Logic.Consult.GetAdKeyWebSiteId(key, cityId);
                 AdvAli.Entity.Site site = Logic.Consult.GetWebSite(siteid);
+                adType = site.AdDisplay;
+                adId = site.AdId;
                 if (object.Equals(site, null)) //没有该地域没有任何对话,显示受访网站对话
                 {
                     siteid = Logic.Consult.GetAdWebSiteId(cityId, out adType, out adId);
@@ -161,11 +163,6 @@ namespace AdvAli.Web.script
                 return;
             if (adType == 1)
             {
-                /*Guidec g = (Guidec)HtmlWebSite.GetAdvert(adType, adId);
-                string baseUrl = Config.Global.__WebSiteUrl + "website/previewGuidec.aspx?";
-                urls += "guidechead=" + GlobalObject.escape(g.Title);
-                urls += "&guideclink=" + GlobalObject.escape(g.Link);
-                urls = baseUrl + urls;*/
                 urls = Config.Global.__WebSiteUrl + "website/getguidec.aspx?1=1";
             }
             if (adType == 2 || adType == 3)

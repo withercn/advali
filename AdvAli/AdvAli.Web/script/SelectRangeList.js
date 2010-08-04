@@ -82,8 +82,8 @@
 		                    {
 			                    items[i].checked = ck.checked;
 		                    }
-	                    }
-	                    ck.parentNode.removeChild(ck.nextSibling);
-	                    ck.parentNode.removeChild(ck);
+		                }
+	                    //ck.parentNode.removeChild(ck.nextSibling);
+	                    //ck.parentNode.removeChild(ck);
 	                    makeSure();
                     }	
