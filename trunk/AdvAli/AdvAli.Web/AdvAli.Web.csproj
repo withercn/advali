@@ -366,6 +366,7 @@
     <Content Include="script\qq.js" />
     <Content Include="script\SelectRangeList.js" />
     <Content Include="script\SetAd.aspx" />
+    <Content Include="test.aspx" />
     <Content Include="user\groups.aspx" />
     <Content Include="user\groupsadd.aspx" />
     <Content Include="user\groupsedit.aspx" />
@@ -555,6 +556,13 @@
     </Compile>
     <Compile Include="script\SetAd.aspx.designer.cs">
       <DependentUpon>SetAd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\groups.aspx.cs">
       <DependentUpon>groups.aspx</DependentUpon>

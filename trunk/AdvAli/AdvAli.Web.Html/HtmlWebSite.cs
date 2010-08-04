@@ -501,7 +501,9 @@ namespace AdvAli.Web.Html
             }
             if (rangelist.Length > 0)
             {
-                rangelist = rangelist.Substring(0, rangelist.Length - 1);
+                string w = rangelist.Substring(rangelist.Length - 1);
+                if (w == ",")
+                    rangelist = rangelist.Substring(0, rangelist.Length - 1);
                 string[] str = rangelist.Split(new char[] { ',' });
                 rangelist = "";
                 for (int i = 0; i < str.Length; i++)

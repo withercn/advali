@@ -33,6 +33,19 @@ namespace AdvAli.Web.website
         {
             Entity.Site site = Logic.Consult.GetWebSite(id);
             txtRange.Value = site.RangeList.Replace("$", "");
+            string[] txt = txtRange.Value.Split(new char[] { ',' });
+            ArrayList al = new ArrayList();
+            txtRange.Value = "";
+            foreach (string t in txt)
+            {
+                if (!al.Contains(t) && !string.IsNullOrEmpty(t))
+                {
+                    al.Add(t);
+                    txtRange.Value += t + ",";
+                }
+            }
+            if (txtRange.Value.Length > 0)
+                txtRange.Value = txtRange.Value.Substring(0, txtRange.Value.Length - 1);
             this.CreateCheckItem(txtRange.Value, HtmlWebSite.GetAdRang(txtRange.Value));
         }
 
