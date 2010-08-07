@@ -10,9 +10,7 @@ namespace AdvAli.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int adType = 0;
-            int adId = 0;
-            Logic.Consult.GetAdKeyWebSiteId("深圳医疗", 214, out  adType, out adId);
+            Logic.Consult.GetAdKeyWebSiteId("深圳医疗", 214);
         }
     }
 }

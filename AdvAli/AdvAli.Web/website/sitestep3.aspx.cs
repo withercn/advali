@@ -40,10 +40,9 @@ namespace AdvAli.Web.website
             Entity.Site site = Logic.Consult.GetWebSite(id);
             adTypeSelect.Value = site.AdDisplay.ToString();
             if (Common.Util.GetAdType(site.AdDisplay) == "文字商务通" && site.Templates > 0)
-            {
                 ((HtmlInputRadioButton)Page.FindControl("template" + site.Templates.ToString())).Checked = true;
-                    
-            }
+            else
+                ClientScript.RegisterStartupScript(this.GetType(), "s", "selectAd(" + adTypeSelect.Value + ");", true);
         }
 
         protected void Step2_Click(object sender, EventArgs e)

@@ -393,6 +393,7 @@
     <Content Include="website\sitestep2.aspx" />
     <Content Include="website\sitestep3.aspx" />
     <Content Include="website\sitestep4_1.aspx" />
+    <Content Include="website\sitestep4_2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ForgetPassword.aspx.cs">
@@ -738,6 +739,13 @@
     </Compile>
     <Compile Include="website\sitestep4_1.aspx.designer.cs">
       <DependentUpon>sitestep4_1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="website\sitestep4_2.aspx.cs">
+      <DependentUpon>sitestep4_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="website\sitestep4_2.aspx.designer.cs">
+      <DependentUpon>sitestep4_2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

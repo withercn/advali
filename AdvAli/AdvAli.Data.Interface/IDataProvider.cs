@@ -452,5 +452,9 @@ namespace AdvAli.Data
         /// 获取符合"关键词"及"地域"的网站ID(字符串形式),优先同时有关键词和地域-->没有关键词,只有地域-->(无)
         /// </summary>
         string GetKeyProportions(DataSet ds);
+        /// <summary>
+        /// 获取符合指定地域的网站ID(字符串形式)
+        /// </summary>
+        string GetProportions(string cityid);
     }
 }

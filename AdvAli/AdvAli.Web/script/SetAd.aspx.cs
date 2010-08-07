@@ -128,17 +128,10 @@ namespace AdvAli.Web.script
             {
                 siteid = Logic.Consult.GetAdKeyWebSiteId(key, cityId);
                 AdvAli.Entity.Site site = Logic.Consult.GetWebSite(siteid);
-                adType = site.AdDisplay;
-                adId = site.AdId;
                 if (object.Equals(site, null)) //没有该地域没有任何对话,显示受访网站对话
                 {
-                    siteid = Logic.Consult.GetAdWebSiteId(cityId, out adType, out adId);
-                    site = Logic.Consult.GetWebSite(siteid);
-                    if (object.Equals(site, null)) //没有该地域没有任何对话,显示受访网站对话
-                    {
-                        site = Logic.Consult.GetWebSite(Common.Util.GetPageParamsAndToInt("siteid"));
-                        siteid = site.Id;
-                    }
+                    site = Logic.Consult.GetWebSite(Common.Util.GetPageParamsAndToInt("siteid"));
+                    siteid = site.Id;
                 }
                 adType = site.AdDisplay;
                 adId = site.AdId;
@@ -146,7 +139,7 @@ namespace AdvAli.Web.script
             }
             else if (cityId > 0) //根据客户地域,轮换显示不同网站对话 || 轮换显示搜索引擎包含地域所在的网站的对话
             {
-                siteid = Logic.Consult.GetAdWebSiteId(cityId, out adType, out adId);
+                siteid = Logic.Consult.GetAdWebSiteId(cityId);
                 AdvAli.Entity.Site site = Logic.Consult.GetWebSite(siteid);
                 if (object.Equals(site, null)) //没有该地域没有任何对话,显示受访网站对话
                 {
