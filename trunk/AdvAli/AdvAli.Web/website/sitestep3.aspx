@@ -25,7 +25,7 @@
                 <li>广告图片高度：</li>
                 <li>&nbsp;&nbsp;　　　　　　<textarea id="curscript" runat="server" class="loginTextarea"></textarea></li>
                 <li class="box" style="line-height:24px;">当流量为加盟网站自身需要的资源，则系统自动调用此代码，即联盟系统对这部分流量资源不做任何处理直接调用加盟站点加盟前的即时通讯代码。</li>-->
-                <li id="showpic">
+                <li runat="server" id="showpic">
                    <div style="width:350px;height:240px;text-align:center;float:left;">
                         <label for="template1"><img src="../images/swtm.gif" width="350" height="200" alt="" /></label>
                         <input type="radio" value="1" name="templates" runat="server" id="template1" />

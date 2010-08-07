@@ -97,57 +97,19 @@ function hideAll()
 //    }
 }
 
-function AddQQ(obj)
-{
-    var tag = "QQ";
-    if($("isqq").value=="0")
-        tag = "Msn";
-    var qqn = parseInt(document.getElementById("qqn").value);
-    qqn = qqn + 1;
-    if (qqn>20)
-    {
-        return;
-    }
-    document.getElementById("qqn").value = qqn;
-    var qqnum1 = document.createElement("li");
-    qqnum1.className = "left";
-    qqnum1.innerHTML = tag + "号码" + qqn + "：";
-    obj.parentNode.insertBefore(qqnum1,obj);
-    var qqnum2 = document.createElement("li");
-    qqnum2.className = "inputf left";
-    qqnum2.innerHTML = "<input id=\"qqnum" + qqn + "\" name=\"qqnum" + qqn + "\" type=\"text\" class=\"loginInput\" />";
-    obj.parentNode.insertBefore(qqnum2,obj);
-    var qqs1 = document.createElement("li");
-    qqs1.className = "left";
-    qqs1.innerHTML = tag + "名称" + qqn + "：";
-    obj.parentNode.insertBefore(qqs1,obj);
-    var qqs2 = document.createElement("li");
-    qqs2.className = "inputf left";
-    qqs2.innerHTML = "<input id=\"qqs" + qqn + "\" name=\"qqs" + qqn + "\" type=\"text\" class=\"loginInput\" />";
-    obj.parentNode.insertBefore(qqs2,obj);
-    var cls = document.createElement("li");
-    cls.style.height="0px";
-    cls.style.lineHeight="0px";
-    cls.style.clear="both";
-    cls.style.fontSize="0px";
-    cls.style.overflow="hidden";
-    cls.innerText = " ";
-    obj.parentNode.insertBefore(cls,obj);
-    var qqtitle1 = document.createElement("li");
-    qqtitle1.className = "left";
-    qqtitle1.innerHTML = tag + "说明" + qqn + "：";
-    obj.parentNode.insertBefore(qqtitle1,obj);
-    var qqtitle2 = document.createElement("li");
-    qqtitle2.className = "inputs left";
-    qqtitle2.innerHTML = "<input id=\"qqtitle" + qqn + "\" name=\"qqtitle" + qqn + "\" type=\"text\" class=\"loginInput\" />";
-    obj.parentNode.insertBefore(qqtitle2,obj);
-    var cls2 = document.createElement("li");
-    cls2.style.height="0px";
-    cls2.style.lineHeight="0px";
-    cls2.style.clear="both";
-    cls2.style.fontSize="0px";
-    cls2.style.overflow="hidden";
-    obj.parentNode.insertBefore(cls2,obj); 
+function addQQMSN() {
+    var qqn = parseInt($("qqn").value);
+    var qqinfo = $("qqinfo");
+    var li1 = document.createElement("li");
+    li1.innerHTML = "　 QQ/MSN<span class=\"red\">号码" + (qqn + 1) + "：</span><input name=\"qqnum" + qqn + "\" type=\"text\" class=\"loginInput\" />";
+    $("qqinfo").appendChild(li1);
+    var li2 = document.createElement("li");
+    li2.innerHTML = "　 QQ/MSN<span class=\"red\">昵称" + (qqn + 1) + "：</span><input name=\"qqs" + qqn + "\" runat=\"server\" type=\"text\" class=\"loginInput\" />";
+    $("qqinfo").appendChild(li2);
+    var li3 = document.createElement("li");
+    li3.innerHTML = "　 QQ/MSN<span class=\"red\">分组" + (qqn + 1) + "：</span><input name=\"qqtitle" + qqn + "\" runat=\"server\" type=\"text\" class=\"loginInput\" />";
+    $("qqinfo").appendChild(li3);
+    $("qqn").value = qqn + 1;
 }
 
 function previewQQ()

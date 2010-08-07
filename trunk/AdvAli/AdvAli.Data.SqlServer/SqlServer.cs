@@ -1572,6 +1572,27 @@ namespace AdvAli.Data
                 return null;
             }
         }
+        public string GetProportions(string cityid)
+        {
+            this.builder = new StringBuilder();
+            this.builder.Append(string.Format("select id from adv_site where ranglist like '%${0}$%' and stats=1", cityid));
+            using (DataSet ds = SqlHelper.RunSqlGetDataSet(this.builder.ToString()))
+            {
+                if (Util.CheckDataSet(ds))
+                {
+                    string siteid = "";
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        if (i < ds.Tables[0].Rows.Count - 1)
+                            siteid += ds.Tables[0].Rows[i]["id"].ToString() + ",";
+                        else
+                            siteid += ds.Tables[0].Rows[i]["id"].ToString();
+                    }
+                    return siteid;
+                }
+                return string.Empty;
+            }
+        }
         public string GetKeyProportions(string keywords, string cityid)
         {
             using (DataSet ds = GetKeyProportion(keywords, cityid))
