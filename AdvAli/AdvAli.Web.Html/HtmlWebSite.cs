@@ -527,7 +527,20 @@ namespace AdvAli.Web.Html
                 return;
             }
             int templates = Common.Util.GetPageParamsAndToInt("templates");
+            if (adtype == 1 && templates == -100)
+            {
+                MsgBox.Alert("WebSiteAdd", "<p>请选择广告显示模板!</p>");
+                return;
+            }
             Site site = Logic.Consult.GetWebSite(siteid);
+            if (site.AdDisplay != adtype)
+            {
+                if (!((site.AdDisplay == 2 && adtype == 3) || (site.AdDisplay == 3 && adtype == 2)))
+                {
+                    Logic.Consult.RemoveAdvert(site.AdDisplay, site.AdId);
+                    site.AdId = 0;
+                }
+            }
             site.AdDisplay = adtype;
             site.Templates = templates;
             Logic.Consult.SaveStep3(siteid, site);
@@ -564,6 +577,40 @@ namespace AdvAli.Web.Html
             guidec.Tel1 = tel1;
             guidec.Tel2 = tel2;
             int results = Logic.Consult.SaveStep41(siteid, site, guidec);
+            if (results > 0)
+                MsgBox.Alert("Alert", "<p>网站加盟成功!</p>", "../website/GetScript.aspx?siteid=" + siteid.ToString());
+            else
+                MsgBox.Alert("网站加盟失败!");
+        }
+        public static void SaveStep42(int siteid)
+        {
+            Site site = Logic.Consult.GetWebSite(siteid);
+            QQMsn qqmsn;
+            if (site.AdId > 0)
+                qqmsn = Logic.Consult.GetQQMsn(site.AdId);
+            else
+                qqmsn = new QQMsn();
+            qqmsn.Header = Common.Util.GetPageParams("qqhead");
+            qqmsn.Bottom = Common.Util.GetPageParams("qqbottom");
+            int qq = Common.Util.ChangeStrToInt(Common.Util.GetPageParams("qqn"));
+            qqmsn.IsQQ = (Common.Util.GetPageParams("isqq") == "1") ? true : false;
+            string qqnum = "", qqs = "", qqtitle = "";
+            for (int i = 1; i <= qq; i++)
+            {
+                qqnum += Common.Util.GetPageParams("qqnum" + i.ToString()) + "|||";
+                qqs += Common.Util.GetPageParams("qqs" + i.ToString()) + "|||";
+                qqtitle += Common.Util.GetPageParams("qqtitle" + i.ToString()) + "|||";
+            }
+            if (qqnum.Length > 0)
+                qqnum = qqnum.Substring(0, qqnum.Length - 3);
+            if (qqs.Length > 0)
+                qqs = qqs.Substring(0, qqs.Length - 3);
+            if (qqtitle.Length > 0)
+                qqtitle = qqtitle.Substring(0, qqtitle.Length - 3);
+            qqmsn.Account = qqnum;
+            qqmsn.Namer = qqs;
+            qqmsn.Notes = qqtitle;
+            int results = Logic.Consult.SaveStep42(siteid, site, qqmsn);
             if (results > 0)
                 MsgBox.Alert("Alert", "<p>网站加盟成功!</p>", "../website/GetScript.aspx?siteid=" + siteid.ToString());
             else

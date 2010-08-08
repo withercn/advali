@@ -394,6 +394,8 @@
     <Content Include="website\sitestep3.aspx" />
     <Content Include="website\sitestep4_1.aspx" />
     <Content Include="website\sitestep4_2.aspx" />
+    <Content Include="website\sitestep4_3.aspx" />
+    <Content Include="website\sitestep4_4.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ForgetPassword.aspx.cs">
@@ -746,6 +748,20 @@
     </Compile>
     <Compile Include="website\sitestep4_2.aspx.designer.cs">
       <DependentUpon>sitestep4_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="website\sitestep4_3.aspx.cs">
+      <DependentUpon>sitestep4_3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="website\sitestep4_3.aspx.designer.cs">
+      <DependentUpon>sitestep4_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="website\sitestep4_4.aspx.cs">
+      <DependentUpon>sitestep4_4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="website\sitestep4_4.aspx.designer.cs">
+      <DependentUpon>sitestep4_4.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -38,6 +38,7 @@ select
 .operator .h30 {float:left;height:36px;line-height:36px;}
 .logins li {line-height:36px;}
 .loginInput {background-color:white;border:1px #6C92AD solid;width:229px;height:24px;margin-left:5px;font-family:Arial,宋体;font-size:14px;line-height:24px;padding-left:5px;}
+.preview {background:url(../images/preview.gif) no-repeat;margin:0;padding:0;border:0;cursor:pointer;width:133px;height:29px;line-height:29px;}
 .loginTextarea {background-color:white;border:1px #6C92AD solid;overflow:auto;width:450px;height:150px;padding:5px 5px 0 5px;font-family:Arial,宋体;font-size:12px;line-height:20px;margin-left:5px;}
 .selectRange {background-color:white;border:1px #6C92AD solid;width:329px;height:121px;overflow:auto; padding:5px 5px 0 5px;font-family:Arial,宋体;font-size:12px;line-height:20px;margin-left:5px;}
 li.inputf {float:left;font-size:12px;}

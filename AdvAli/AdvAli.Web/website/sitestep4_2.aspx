@@ -17,13 +17,13 @@
             <div class="count" runat="server">加盟网站</div>
             <div></div>
             <ul class="logins">
-                <li>QQ/MSN<span class="red">窗口标题：</span><input id="qqhead" runat="server" type="text" class="loginInput" /></li>
-                <li>QQ/MSN<span class="red">窗口尾注：</span><input id="qqbottom" runat="server" type="text" class="loginInput" /></li>
+                <li>QQ<span class="red">窗口标题：</span><input id="qqhead" runat="server" type="text" class="loginInput" /></li>
+                <li>QQ<span class="red">窗口尾注：</span><input id="qqbottom" runat="server" type="text" class="loginInput" /></li>
             </ul>
             <ul class="logins" id="qqinfo" runat="server" style="float:left;">
-                <li>　 QQ/MSN<span class="red">号码1：</span><input name="qqnum1" runat="server" type="text" class="loginInput" /></li>
-                <li>　 QQ/MSN<span class="red">昵称1：</span><input name="qqs1" runat="server" type="text" class="loginInput" /></li>
-                <li>　 QQ/MSN<span class="red">分组1：</span><input name="qqtitle1" runat="server" type="text" class="loginInput" /></li>
+                <li>　 QQ<span class="red">号码1：</span><input id="qqnum1" name="qqnum1" runat="server" type="text" class="loginInput" /></li>
+                <li>　 QQ<span class="red">昵称1：</span><input id="qqs1" name="qqs1" runat="server" type="text" class="loginInput" /></li>
+                <li>　 QQ<span class="red">简介1：</span><input id="qqtitle1" name="qqtitle1" runat="server" type="text" class="loginInput" /></li>
             </ul>
             <input type="hidden" runat="server" id="qqn" value="1" />
             <input type="hidden" id="isqq" runat="server" value="1" />
@@ -31,7 +31,7 @@
                 <a href="javascript:void(0);" onclick="addQQMSN();"><img src="../images/QQ/add.gif" width="99" height="52" border="0" alt="" /></a>
             </div>
             <ul class="logins">
-                <li style="clear:both;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;　　　　　　<input onserverclick="Step3_Click" type="submit" class="button" runat="server" value="上 一 步" /> <input onserverclick="SaveStep42_Click" type="submit" class="button" runat="server" value="下 一 步" /></li>
+                <li style="clear:both;">&nbsp;&nbsp;&nbsp;　　　　　<input onserverclick="Step3_Click" type="submit" class="button" runat="server" value="上 一 步" /> <input onserverclick="SaveStep42_Click" type="submit" class="button" runat="server" value="下 一 步" /></li>
             </ul>
             <div style="clear:both;"></div>
         </div>

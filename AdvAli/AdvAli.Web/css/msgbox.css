@@ -25,7 +25,7 @@
 #swtm ul#msgbox_hot li a {font-family:Arial,宋体;font-size:12px;color:#FF0065;text-decoration:none;}
 #swtm ul#msgbox_hot li a:hover {text-decoration:underline;}
 #swtm div.msgbox_button {margin-left:18px;margin-top:3px;height:24px;}
-#swtm div.msgbox_button a {margin-right:6px;}
+#swtm div.msgbox_button a {margin-right:12px;}
 #swtm div#msgbox_prompt {height:18px;line-height:18px;margin-left:70px;color:#353535;}
 
 #swtf {background:url(../images/bf.jpg) no-repeat;width:419px;height:224px;}

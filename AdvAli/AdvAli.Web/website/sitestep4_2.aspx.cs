@@ -40,41 +40,23 @@ namespace AdvAli.Web.website
             string[] qqtitle = qqmsn.Notes.Split(new string[] { "|||" }, StringSplitOptions.RemoveEmptyEntries);
             if (qqnum.Length == 0 || qqs.Length == 0 || qqtitle.Length == 0)
                 return;
-            if (qqmsn.IsQQ)
-                isqq.Value = "1";
-            else
-                isqq.Value = "0";
+            isqq.Value = "1";
             string html = "";
             if (qqnum.Length == qqs.Length && qqs.Length == qqtitle.Length && qqnum.Length > 0)
             {
                 for (int j = 0; j < qqnum.Length; j++)
                 {
                     int i = j + 1;
-                    html += string.Format("<li>　 QQ/MSN<span class=\"red\">号码{0}：</span><input name=\"qqnum{0}\" runat=\"server\" type=\"text\" class=\"loginInput\" /></li><li>　 QQ/MSN<span class=\"red\">昵称{0}：</span><input name=\"qqs{0}\" runat=\"server\" type=\"text\" class=\"loginInput\" /></li><li>　 QQ/MSN<span class=\"red\">分组{0}：</span><input name=\"qqtitle{0}\" runat=\"server\" type=\"text\" class=\"loginInput\" /></li>", i.ToString());
+                    html += string.Format("<li>　 QQ/MSN<span class=\"red\">号码{0}：</span><input name=\"qqnum{0}\" runat=\"server\" type=\"text\" value=\"{1}\" class=\"loginInput\" /></li><li>　 QQ/MSN<span class=\"red\">昵称{0}：</span><input name=\"qqs{0}\" runat=\"server\" type=\"text\" value=\"{2}\" class=\"loginInput\" /></li><li>　 QQ/MSN<span class=\"red\">分组{0}：</span><input name=\"qqtitle{0}\" runat=\"server\" type=\"text\" value=\"{3}\" class=\"loginInput\" /></li>", i.ToString(), qqnum[j], qqs[j], qqtitle[j]);
                 }
                 qqinfo.InnerHtml = html;
+                qqn.Value = qqnum.Length.ToString();
             }
         }
 
         protected void SaveStep42_Click(object sender, EventArgs e)
         {
-            Entity.Site site = Logic.Consult.GetWebSite(id);
-            Entity.QQMsn qqmsn;
-            if (site.AdId > 0)
-                qqmsn = new QQMsn();
-            else
-                qqmsn = Logic.Consult.GetQQMsn(site.AdId);
-            qqmsn.Header = qqhead.Value.Trim();
-            qqmsn.Bottom = qqbottom.Value.Trim();
-            int qq = Common.Util.ChangeStrToInt(qqn.Value);
-            qqmsn.IsQQ = (isqq.Value == "1") ? true : false;
-            string qqnum = "", qqs = "", qqtitle = "";
-            for (int i = 1; i < qq; i++)
-            {
-                qqnum += Common.Util.GetPageParams("qqnum" + i.ToString()) + "|||";
-                qqs += Common.Util.GetPageParams("qqs" + i.ToString()) + "|||";
-                qqtitle += Common.Util.GetPageParams("qqtitle" + i.ToString()) + "|||";
-            }
+            HtmlWebSite.SaveStep42(id);
         }
 
         protected void Step3_Click(object sender, EventArgs e)
