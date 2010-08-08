@@ -425,6 +425,10 @@ namespace AdvAli.Data
         /// </summary>
         int SaveStep41(int siteid, Site site, Guidec guidec);
         /// <summary>
+        /// 加盟网站调协第四步（QQ MSN）
+        /// </summary>
+        int SaveStep42(int siteid, Site site, QQMsn qqmsn);
+        /// <summary>
         /// 多个网站昨天(所有提供)的访问量
         /// </summary>
         int GetAllProportion(string siteid);

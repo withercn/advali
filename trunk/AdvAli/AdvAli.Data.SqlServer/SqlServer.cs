@@ -981,12 +981,13 @@ namespace AdvAli.Data
         public void SaveStep3(int siteid, Site site)
         {
             this.builder = new StringBuilder();
-            this.builder.Append("update adv_site set addisplay=@addisplay,templates=@templates where id=@siteid");
+            this.builder.Append("update adv_site set addisplay=@addisplay,templates=@templates,adid=@adid where id=@siteid");
             SqlParameter[] sParams = new SqlParameter[]
             {
                 SqlHelper.MakeInParam("@addisplay", SqlDbType.Int, 4, site.AdDisplay),
                 SqlHelper.MakeInParam("@templates", SqlDbType.Int, 4, site.Templates),
-                SqlHelper.MakeInParam("@siteid", SqlDbType.Int, 4, siteid)
+                SqlHelper.MakeInParam("@siteid", SqlDbType.Int, 4, siteid),
+                SqlHelper.MakeInParam("@adid", SqlDbType.Int, 4, site.AdId)
             };
             SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), sParams);
         }
@@ -1049,6 +1050,58 @@ namespace AdvAli.Data
                         SqlHelper.MakeInParam("@id", SqlDbType.Int, 4, siteid)
                     };
                     SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), fParams);
+                    return id;
+                }
+            }
+        }
+        public int SaveStep42(int siteid, Site site, QQMsn qqmsn)
+        {
+            this.builder = new StringBuilder();
+            if (site.AdId > 0)
+            {
+                this.builder.Append("update adv_qqmsn set header=@header,bottom=@bottom,account=@account,namer=@namer,notes=@notes,isqq=@isqq where id=@id");
+                SqlParameter[] sParams = new SqlParameter[]
+                {
+                    SqlHelper.MakeInParam("@header", SqlDbType.VarChar, 200, qqmsn.Header),
+                    SqlHelper.MakeInParam("@bottom", SqlDbType.VarChar, 200, qqmsn.Bottom),
+                    SqlHelper.MakeInParam("@account", SqlDbType.VarChar, 2000, qqmsn.Account),
+                    SqlHelper.MakeInParam("@namer", SqlDbType.VarChar, 2000, qqmsn.Namer),
+                    SqlHelper.MakeInParam("@notes", SqlDbType.VarChar, 2000, qqmsn.Notes),
+                    SqlHelper.MakeInParam("@isqq", SqlDbType.Bit, 1, qqmsn.IsQQ),
+                    SqlHelper.MakeInParam("@id", SqlDbType.Int, 4, qqmsn.Id)
+                };
+                SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), sParams);
+                return qqmsn.Id;
+            }
+            else
+            {
+                this.builder.Append("insert into adv_qqmsn (header,bottom,account,namer,notes,isqq) values (@header,@bottom,@account,@namer,@notes,@isqq)");
+                SqlParameter[] fParams = new SqlParameter[]
+                {
+                    SqlHelper.MakeInParam("@header", SqlDbType.VarChar, 200, qqmsn.Header),
+                    SqlHelper.MakeInParam("@bottom", SqlDbType.VarChar, 200, qqmsn.Bottom),
+                    SqlHelper.MakeInParam("@account", SqlDbType.VarChar, 2000, qqmsn.Account),
+                    SqlHelper.MakeInParam("@namer", SqlDbType.VarChar, 2000, qqmsn.Namer),
+                    SqlHelper.MakeInParam("@notes", SqlDbType.VarChar, 2000, qqmsn.Notes),
+                    SqlHelper.MakeInParam("@isqq", SqlDbType.Bit, 1, qqmsn.IsQQ)
+                };
+                SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), fParams);
+                this.builder = new StringBuilder();
+                this.builder.Append("select top 1 id from adv_qqmsn order by id desc");
+                object obj = SqlHelper.RunSqlGetFirstCellValue(this.builder.ToString());
+                if (object.Equals(obj, null) || object.Equals(obj, System.DBNull.Value))
+                    return 0;
+                else
+                {
+                    int id = int.Parse(obj.ToString());
+                    this.builder = new StringBuilder();
+                    this.builder.Append("update adv_site set adid=@adid where id=@id");
+                    SqlParameter[] nParams = new SqlParameter[]
+                    {
+                        SqlHelper.MakeInParam("@adid", SqlDbType.Int, 4, id),
+                        SqlHelper.MakeInParam("@id", SqlDbType.Int, 4, siteid)
+                    };
+                    SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), nParams);
                     return id;
                 }
             }

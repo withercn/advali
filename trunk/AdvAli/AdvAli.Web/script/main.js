@@ -101,13 +101,13 @@ function addQQMSN() {
     var qqn = parseInt($("qqn").value);
     var qqinfo = $("qqinfo");
     var li1 = document.createElement("li");
-    li1.innerHTML = "　 QQ/MSN<span class=\"red\">号码" + (qqn + 1) + "：</span><input name=\"qqnum" + qqn + "\" type=\"text\" class=\"loginInput\" />";
+    li1.innerHTML = "　 QQ/MSN<span class=\"red\">号码" + (qqn + 1) + "：</span><input name=\"qqnum" + (qqn + 1) + "\" type=\"text\" class=\"loginInput\" />";
     $("qqinfo").appendChild(li1);
     var li2 = document.createElement("li");
-    li2.innerHTML = "　 QQ/MSN<span class=\"red\">昵称" + (qqn + 1) + "：</span><input name=\"qqs" + qqn + "\" runat=\"server\" type=\"text\" class=\"loginInput\" />";
+    li2.innerHTML = "　 QQ/MSN<span class=\"red\">昵称" + (qqn + 1) + "：</span><input name=\"qqs" + (qqn + 1) + "\" runat=\"server\" type=\"text\" class=\"loginInput\" />";
     $("qqinfo").appendChild(li2);
     var li3 = document.createElement("li");
-    li3.innerHTML = "　 QQ/MSN<span class=\"red\">分组" + (qqn + 1) + "：</span><input name=\"qqtitle" + qqn + "\" runat=\"server\" type=\"text\" class=\"loginInput\" />";
+    li3.innerHTML = "　 QQ/MSN<span class=\"red\">分组" + (qqn + 1) + "：</span><input name=\"qqtitle" + (qqn + 1) + "\" runat=\"server\" type=\"text\" class=\"loginInput\" />";
     $("qqinfo").appendChild(li3);
     $("qqn").value = qqn + 1;
 }
@@ -128,115 +128,13 @@ function previewQQ()
     return url;
 }
 
-function AddGuidec(obj)
-{
-    var gnum = parseInt($("guidecnum").value);
-    gnum = gnum + 1;
-    $("guidecnum").value = gnum;
-    if(gnum > 5)
-    {
-        $("guidecnum").value=5;
-        return;
-    }
-    var articleT = document.createElement("li");
-    articleT.className = "h30 left";
-    articleT.innerText = "广告文字" + gnum + "：";
-    obj.parentNode.insertBefore(articleT,obj);
-    var articleL = document.createElement("li");
-    articleL.className = "inputs";
-    articleL.innerHTML = "<input type=\"text\" id=\"article" + gnum + "\" name=\"article" + gnum + "\" class=\"loginInput\" />";
-    obj.parentNode.insertBefore(articleL,obj);
-    var nuls = document.createElement("li");
-    nuls.style.height="0px";
-    nuls.style.lineHeight="0px";
-    nuls.style.clear="both";
-    nuls.style.fontSize="0px";
-    nuls.style.overflow="hidden";
-    obj.parentNode.insertBefore(nuls,obj);
-    var linkT = document.createElement("li");
-    linkT.className = "h30 left";
-    linkT.innerText = "文字链接" + gnum + "：";
-    obj.parentNode.insertBefore(linkT,obj);
-    var linkL = document.createElement("li");
-    linkL.className = "inputs";
-    linkL.innerHTML = "<input type=\"text\" id=\"articlelink" + gnum + "\" name=\"articlelink" + gnum + "\" class=\"loginInput\" />";
-    obj.parentNode.insertBefore(linkL,obj);
-    nuls = document.createElement("li");
-    nuls.style.height="0px";
-    nuls.style.lineHeight="0px";
-    nuls.style.clear="both";
-    nuls.style.fontSize="0px";
-    nuls.style.overflow="hidden";
-    obj.parentNode.insertBefore(nuls,obj);
-}
-
-function previewGuidec()
-{
-    var gnum = parseInt($("guidecnum").value);
-    var url = "../website/previewGuidec.aspx";
-    url = url + "?gnum=" + gnum + "&guidechead=" + escape($("guidechead").value) + "&guideclink=" + escape($("guideclink").value);
-    for(var i=0;i<gnum;i++)
-    {
-        url = url + "&article" + i + "=" + escape($("article" + (i+1)).value);
-        url = url + "&articlelink" + i + "=" + escape($("articlelink" + (i+1)).value);
-    }
-    url = url + "&guideccontent=" + escape($("guideccontent").value);
-    return url;
-}
-
-function AddPicture(obj)
-{
-    var picnum = parseInt($("picnum").value);
-    picnum = picnum + 1;
-    $("picnum").value = picnum;
-    if(picnum>5)
-    {
-        return;
-    }
-    var picNameT = document.createElement("li");
-    picNameT.className = "h30";
-    picNameT.innerText = "图片名称" + picnum + "：";
-    obj.parentNode.insertBefore(picNameT,obj);
-    var picNameL = document.createElement("li");
-    picNameL.className = "inputs";
-    picNameL.innerHTML = "<input type=\"text\" id=\"pic" + picnum + "\" name=\"pic" + picnum + "\" class=\"loginInput\" />";
-    obj.parentNode.insertBefore(picNameL,obj);
-    var picUrlT = document.createElement("li");
-    picUrlT.className = "h30";
-    picUrlT.innerText = "图片地址" + picnum + "：";
-    obj.parentNode.insertBefore(picUrlT,obj);
-    var picUrlL = document.createElement("li");
-    picUrlL.className = "h30";
-    picUrlL.innerHTML = "<input type=\"file\" id=\"picurl" + picnum + "\" name=\"picurl" + picnum + "\" class=\"loginInput\" />";
-    obj.parentNode.insertBefore(picUrlL,obj);
-    var picLnkT = document.createElement("li");
-    picLnkT.className = "h30";
-    picLnkT.innerText = "图片链接" + picnum + "：";
-    obj.parentNode.insertBefore(picLnkT,obj);
-    var picLnkL = document.createElement("li");
-    picLnkL.className = "inputs";
-    picLnkL.innerHTML = "<input type=\"text\" id=\"piclnk" + picnum + "\" name=\"piclnk" + picnum + "\" class=\"loginInput\" />";
-    obj.parentNode.insertBefore(picLnkL,obj);
-}
-
 function previewPicture()
 {
-    var url = "../website/previewPicture.aspx?width=" + $("picwidth").value + "&height=" + $("picheight").value;
-    url += "&picname=" + escape($("picname").value);
-    if(!$("picurl").value.length==0)
-    {
-        url += "&picurl=" + escape(getFullPath($("picurl")));
-    }
-    else if($("pichref")!=null)
-    {
-        url += "&picurl=" + escape($("pichref").href);
-    }
-    else
-    {
-        url += "&picurl=";
-    }
-    url += "&piclnk=" + escape($("piclnk").value);
-    return url;
+    var url = "../website/previewPicture.aspx?width=" + $("width").value + "&height=" + $("height").value;
+    url += "&picname=" + escape($("imagename").value);
+    url += "&picurl=" + escape($("imageurl").value);
+    url += "&piclnk=" + escape($("imagelink").value);
+    window.open(url);
 }
 
 function deleteGuidec(obj)
