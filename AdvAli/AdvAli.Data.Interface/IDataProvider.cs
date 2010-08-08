@@ -429,6 +429,10 @@ namespace AdvAli.Data
         /// </summary>
         int SaveStep42(int siteid, Site site, QQMsn qqmsn);
         /// <summary>
+        /// 加盟网站调协第四步（图片商务通）
+        /// </summary>
+        int SaveStep44(int siteid, Site site, Images images);
+        /// <summary>
         /// 多个网站昨天(所有提供)的访问量
         /// </summary>
         int GetAllProportion(string siteid);
