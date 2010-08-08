@@ -616,6 +616,25 @@ namespace AdvAli.Web.Html
             else
                 MsgBox.Alert("网站加盟失败!");
         }
+        public static void SaveStep44(int siteid)
+        {
+            Site site = Logic.Consult.GetWebSite(siteid);
+            Images images;
+            if (site.AdId > 0)
+                images = Logic.Consult.GetImages(site.AdId);
+            else
+                images = new Images();
+            images.ImageName = Common.Util.GetPageParams("imagename");
+            images.ImageUrl = Common.Util.GetPageParams("imageurl");
+            images.ImageLink = Common.Util.GetPageParams("imagelink");
+            images.Width = Common.Util.GetPageParamsAndToInt("width");
+            images.Height = Common.Util.GetPageParamsAndToInt("height");
+            int results = Logic.Consult.SaveStep44(siteid, site, images);
+            if (results > 0)
+                MsgBox.Alert("Alert", "<p>网站加盟成功!</p>", "../website/GetScript.aspx?siteid=" + siteid.ToString());
+            else
+                MsgBox.Alert("网站加盟失败!");
+        }
         #endregion
     }
 }

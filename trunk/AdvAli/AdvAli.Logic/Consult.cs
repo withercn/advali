@@ -775,5 +775,9 @@ namespace AdvAli.Logic
         {
             return provider.SaveStep42(siteid, site, qqmsn);
         }
+        public static int SaveStep44(int siteid, Site site, Images images)
+        {
+            return provider.SaveStep44(siteid, site, images);
+        }
     }
 }

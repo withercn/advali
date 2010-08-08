@@ -31,7 +31,13 @@ namespace AdvAli.Web.website
 
         private void BData()
         {
-
+            Entity.Site site = Logic.Consult.GetWebSite(id);
+            Images images = Logic.Consult.GetImages(site.AdId);
+            imagename.Value = images.ImageName;
+            imagelink.Value = images.ImageLink;
+            imageurl.Value = images.ImageUrl;
+            width.Value = images.Width.ToString();
+            height.Value = images.Height.ToString();
         }
 
         protected void Step3_Click(object sender, EventArgs e)

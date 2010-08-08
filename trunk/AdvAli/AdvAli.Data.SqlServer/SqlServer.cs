@@ -1106,6 +1106,56 @@ namespace AdvAli.Data
                 }
             }
         }
+        public int SaveStep44(int siteid, Site site, Images images)
+        {
+            this.builder = new StringBuilder();
+            if (site.AdId > 0)
+            {
+                this.builder.Append("update adv_images set imagename=@imagename,imageurl=@imageurl,imagelink=@imagelink,width=@width,height=@height where id=@id");
+                SqlParameter[] sParams = new SqlParameter[]
+                {
+                    SqlHelper.MakeInParam("@imagename", SqlDbType.VarChar, 2000, images.ImageName),
+                    SqlHelper.MakeInParam("@imageurl", SqlDbType.VarChar, 2000, images.ImageUrl),
+                    SqlHelper.MakeInParam("@imagelink", SqlDbType.VarChar, 2000, images.ImageLink),
+                    SqlHelper.MakeInParam("@width", SqlDbType.Int, 4, images.Width),
+                    SqlHelper.MakeInParam("@height", SqlDbType.Int, 4, images.Height),
+                    SqlHelper.MakeInParam("@id", SqlDbType.Int, 4, images.Id)
+                };
+                SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), sParams);
+                return images.Id;
+            }
+            else
+            {
+                this.builder.Append("insert into adv_images (imagename,imageurl,imagelink,width,height) values (@imagename,@imageurl,@imagelink,@width,@height)");
+                SqlParameter[] fParams = new SqlParameter[]
+                {
+                    SqlHelper.MakeInParam("@imagename", SqlDbType.VarChar, 2000, images.ImageName),
+                    SqlHelper.MakeInParam("@imageurl", SqlDbType.VarChar, 2000, images.ImageUrl),
+                    SqlHelper.MakeInParam("@imagelink", SqlDbType.VarChar, 2000, images.ImageLink),
+                    SqlHelper.MakeInParam("@width", SqlDbType.Int, 4, images.Width),
+                    SqlHelper.MakeInParam("@height", SqlDbType.Int, 4, images.Height)
+                };
+                SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), fParams);
+                this.builder = new StringBuilder();
+                this.builder.Append("select top 1 id from adv_images order by id desc");
+                object obj = SqlHelper.RunSqlGetFirstCellValue(this.builder.ToString());
+                if (object.Equals(obj, null) || object.Equals(obj, System.DBNull.Value))
+                    return 0;
+                else
+                {
+                    int id = int.Parse(obj.ToString());
+                    this.builder = new StringBuilder();
+                    this.builder.Append("update adv_site set adid=@adid where id=@id");
+                    SqlParameter[] nParams = new SqlParameter[]
+                    {
+                        SqlHelper.MakeInParam("@adid", SqlDbType.Int, 4, id),
+                        SqlHelper.MakeInParam("@id", SqlDbType.Int, 4, siteid)
+                    };
+                    SqlHelper.RunParamedSqlReturnAffectedRowNum(this.builder.ToString(), nParams);
+                    return id;
+                }
+            }
+        }
         #endregion
         #region 脚本
         public string GetCountry(string ip)
